@@ -2,6 +2,7 @@ import tkinter
 from tkinter import *
 from playsound import playsound
 
+#window configuration
 root=Tk()
 root.title("To-Do-List")
 root.geometry("400x650+400+100")
@@ -10,6 +11,7 @@ root.configure(background = '#333333')
 
 task_list = []
 
+#function to add tasks to list
 def addTask():
     task = task_entry.get()
     task_entry.delete(0, END)
@@ -20,12 +22,14 @@ def addTask():
         task_list.append(task)
         listbox.insert( END,  task)
 
+#functions for sfx
 def completetasksfx():
     playsound('sfx/complete.mp3', False)
 
 def addtasksfx():
     playsound('sfx/add.mp3', False)
 
+#function to remove tasks from list
 def deleteTask():
     global task_list
     task = str(listbox.get(ANCHOR))
@@ -37,6 +41,7 @@ def deleteTask():
 
         listbox.delete( ANCHOR)
 
+#function to read the taskfile adn display the list of tasks
 def openTaskFile():
     try:
         global task_list
@@ -57,19 +62,20 @@ def openTaskFile():
 
 
 
-# icon for application
+# image for application
 
 Image_icon = PhotoImage(file="Image/task.png")
 root.iconphoto(False, Image_icon)
 
-# Icon for top bar
+# image for top bar
 TopImage=PhotoImage(file="Image/topbar.png")
 Label(root, image=TopImage, background = '#333333').pack()
 
+# image for dock
 dockImage=PhotoImage(file="Image/dock.png")
 Label(root, image=dockImage, bg="#32405b").place(x=30, y=25)
 
-
+# image for tasks
 noteImage = PhotoImage(file="image/task.png")
 Label(root, image=noteImage, bg="#32405b").place(x=340, y=19)
 
