@@ -1,1 +1,6 @@
-----
+---- hello
+make window minimisable to system tray with X
+add calendar - google api?
+time tracking inputs - either in the form of an active timer or a record of tasks
+visualise progress - like github contribution timeline
+add a notes panel for reminders etc - alarms and calendar reminders

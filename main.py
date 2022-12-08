@@ -1,6 +1,9 @@
 import tkinter
 from tkinter import *
 from playsound import playsound
+from pystray import MenuItem as item
+import pystray
+from PIL import Image, ImageTk
 
 #window configuration
 root=Tk()
@@ -10,6 +13,34 @@ root.resizable(False, False)
 root.configure(background = '#333333')
 
 task_list = []
+
+
+# pystray minimise to tray
+
+# Define a function for quit the window
+def quit_window(icon, item):
+   icon.stop()
+   root.destroy()
+
+# Define a function to show the window again
+def show_window(icon, item):
+   icon.stop()
+   root.after(0,root.deiconify())
+
+# Hide the window and show on the system taskbar
+def hide_window():
+   root.withdraw()
+   image=Image.open("Image/task.png")
+   menu=(item('Quit', quit_window), item('Show', show_window))
+   icon=pystray.Icon("name", image, "My System Tray Icon", menu)
+   icon.run()
+
+root.protocol('WM_DELETE_WINDOW', hide_window)
+
+
+
+
+
 
 #function to add tasks to list
 def addTask():
