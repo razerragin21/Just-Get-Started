@@ -5,7 +5,6 @@ from pystray import MenuItem as item
 import pystray
 from PIL import Image, ImageTk
 
-
 #window configuration
 root=Tk()
 root.title("To-Do-List")
@@ -14,6 +13,7 @@ root.resizable(False, False)
 root.configure(background = '#333333')
 
 task_list = []
+
 
 # pystray minimise to tray
 
@@ -36,6 +36,7 @@ def hide_window():
    icon.run()
 
 root.protocol('WM_DELETE_WINDOW', hide_window)
+
 
 
 
@@ -92,12 +93,12 @@ def openTaskFile():
 
 
 
-# icon for application
+# image for application
 
 Image_icon = PhotoImage(file="Image/task.png")
 root.iconphoto(False, Image_icon)
 
-# Icon for top bar
+# image for top bar
 TopImage=PhotoImage(file="Image/topbar.png")
 Label(root, image=TopImage, background = '#333333').pack()
 
@@ -105,7 +106,7 @@ Label(root, image=TopImage, background = '#333333').pack()
 dockImage=PhotoImage(file="Image/dock.png")
 Label(root, image=dockImage, bg="#32405b").place(x=30, y=25)
 
-
+# image for tasks
 noteImage = PhotoImage(file="image/task.png")
 Label(root, image=noteImage, bg="#32405b").place(x=340, y=19)
 
