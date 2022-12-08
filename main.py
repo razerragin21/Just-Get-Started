@@ -1,7 +1,12 @@
 import tkinter
 from tkinter import *
 from playsound import playsound
+from pystray import MenuItem as item
+import pystray
+from PIL import Image, ImageTk
 
+
+#window configuration
 root=Tk()
 root.title("To-Do-List")
 root.geometry("400x650+400+100")
@@ -10,6 +15,33 @@ root.configure(background = '#333333')
 
 task_list = []
 
+# pystray minimise to tray
+
+# Define a function for quit the window
+def quit_window(icon, item):
+   icon.stop()
+   root.destroy()
+
+# Define a function to show the window again
+def show_window(icon, item):
+   icon.stop()
+   root.after(0,root.deiconify())
+
+# Hide the window and show on the system taskbar
+def hide_window():
+   root.withdraw()
+   image=Image.open("Image/task.png")
+   menu=(item('Quit', quit_window), item('Show', show_window))
+   icon=pystray.Icon("name", image, "My System Tray Icon", menu)
+   icon.run()
+
+root.protocol('WM_DELETE_WINDOW', hide_window)
+
+
+
+
+
+#function to add tasks to list
 def addTask():
     task = task_entry.get()
     task_entry.delete(0, END)
@@ -20,12 +52,14 @@ def addTask():
         task_list.append(task)
         listbox.insert( END,  task)
 
+#functions for sfx
 def completetasksfx():
     playsound('sfx/complete.mp3', False)
 
 def addtasksfx():
     playsound('sfx/add.mp3', False)
 
+#function to remove tasks from list
 def deleteTask():
     global task_list
     task = str(listbox.get(ANCHOR))
@@ -37,6 +71,7 @@ def deleteTask():
 
         listbox.delete( ANCHOR)
 
+#function to read the taskfile adn display the list of tasks
 def openTaskFile():
     try:
         global task_list
@@ -66,6 +101,7 @@ root.iconphoto(False, Image_icon)
 TopImage=PhotoImage(file="Image/topbar.png")
 Label(root, image=TopImage, background = '#333333').pack()
 
+# image for dock
 dockImage=PhotoImage(file="Image/dock.png")
 Label(root, image=dockImage, bg="#32405b").place(x=30, y=25)
 
