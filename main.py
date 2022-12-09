@@ -32,6 +32,8 @@ def quit_window(icon, item):
 def show_window(icon, item):
    icon.stop()
    root.after(0,root.deiconify())
+   root.lift()
+   root.attributes('-topmost',True)
 
 # Hide the window and show on the system taskbar
 def hide_window():
@@ -143,6 +145,8 @@ task_entry.focus()
 
 button = Button(frame, text="ADD", font="Helvetica 20", width = 6, bg = "#1E1E1E", fg="#2F89FF", activebackground = '#2F89FF', activeforeground ='#FFFFFF', bd = 0, command= lambda:([addTask(), addtasksfx()]))
 button.place(x = 300, y = 0)
+# Enter button allows for same functionality as add button
+root.bind_all("<Return>", lambda event: button.invoke())
 
 
 
@@ -158,6 +162,8 @@ scrollbar.pack(side = RIGHT, fill = BOTH)
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
+
+
 # UI
 # -------------------------------------------------------------------------------------------------
 
@@ -169,6 +175,10 @@ openTaskFile()
 
 Delete_icon = PhotoImage(file="Image/delete.png")
 Button(root, image = Delete_icon, fg = '#333333', bg = '#333333', activebackground = '#333333', bd = 0, command = lambda:[deleteTask(), completetasksfx()]).pack(side = BOTTOM, pady = 13)
+
+
+
+
 
 
 root.mainloop()
