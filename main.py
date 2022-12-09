@@ -35,7 +35,6 @@ def show_window(icon, item):
    root.lift()
    root.attributes('-topmost',True)
 
-
 # Hide the window and show on the system taskbar
 def hide_window():
    root.withdraw()
