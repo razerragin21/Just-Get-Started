@@ -6,7 +6,7 @@ import pystray
 from PIL import Image, ImageTk
 
 
-# window configuration (DO NOT CONFIGURE UNLESS NECCESARY)
+#window configuration
 root=Tk()
 root.title("To-Do-List")
 root.geometry("400x650+400+100")
@@ -15,6 +15,7 @@ root.configure(background = '#333333')
 
 # Intialise the task list array
 task_list = []
+
 
 # pystray minimise to tray
 
@@ -53,7 +54,8 @@ root.protocol('WM_DELETE_WINDOW', show_icon)
 
 
 
-# Creates a task file if one is not found in root dir, if not it appends to a new line in current file
+
+#function to add tasks to list
 def addTask():
     task = task_entry.get()
     task_entry.delete(0, END)
@@ -106,12 +108,12 @@ def openTaskFile():
 # -------------------------------------------------------------------------------------------------
 # UI
 
-# icon for application
+# image for application
 
 Image_icon = PhotoImage(file="Image/task.png")
 root.iconphoto(False, Image_icon)
 
-# Icon for top bar
+# image for top bar
 TopImage=PhotoImage(file="Image/topbar.png")
 Label(root, image=TopImage, background = '#333333').pack()
 
@@ -119,7 +121,7 @@ Label(root, image=TopImage, background = '#333333').pack()
 dockImage=PhotoImage(file="Image/dock.png")
 Label(root, image=dockImage, bg="#32405b").place(x=30, y=25)
 
-
+# image for tasks
 noteImage = PhotoImage(file="image/task.png")
 Label(root, image=noteImage, bg="#32405b").place(x=340, y=19)
 
