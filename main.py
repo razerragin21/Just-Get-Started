@@ -5,6 +5,7 @@ from pystray import MenuItem as item
 import pystray
 from PIL import Image, ImageTk
 
+
 #window configuration
 root=Tk()
 root.title("To-Do-List")
@@ -12,17 +13,22 @@ root.geometry("400x650+400+100")
 root.resizable(False, False)
 root.configure(background = '#333333')
 
+# Intialise the task list array
 task_list = []
 
 
 # pystray minimise to tray
 
 # Define a function for quit the window
+# This is for the system tray area
+# This is referenced further down in the code
 def quit_window(icon, item):
    icon.stop()
    root.destroy()
 
-# Define a function to show the window again
+# Define a function to show the window again 
+# This is the system tray area
+# This is referenced down further in the code
 def show_window(icon, item):
    icon.stop()
    root.after(0,root.deiconify())
@@ -35,9 +41,16 @@ def hide_window():
    icon=pystray.Icon("name", image, "My System Tray Icon", menu)
    icon.run()
 
-root.protocol('WM_DELETE_WINDOW', hide_window)
+# destroys application, creates a system tray icon and is fed Quit, and Show when right clicked
+def show_icon():
+    root.withdraw()
+    image=Image.open("Image/task.png")
+    menu=(item('Quit', quit_window), item('Show', show_window))
+    icon=pystray.Icon("name", image, "My System Tray Icon", menu)
+    icon.run()
 
-
+# runs the show icon function, when windows application is closed
+root.protocol('WM_DELETE_WINDOW', show_icon)
 
 
 
@@ -53,10 +66,11 @@ def addTask():
         task_list.append(task)
         listbox.insert( END,  task)
 
-#functions for sfx
+# Play complete task SFX using playsound (windows compatible only)
 def completetasksfx():
     playsound('sfx/complete.mp3', False)
 
+# Play sound when task ADD using playsound (windows compatible only)
 def addtasksfx():
     playsound('sfx/add.mp3', False)
 
@@ -91,7 +105,8 @@ def openTaskFile():
 
 
 
-
+# -------------------------------------------------------------------------------------------------
+# UI
 
 # image for application
 
@@ -143,6 +158,9 @@ scrollbar.pack(side = RIGHT, fill = BOTH)
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
 
+# UI
+# -------------------------------------------------------------------------------------------------
+
 
 openTaskFile()
 
@@ -151,8 +169,6 @@ openTaskFile()
 
 Delete_icon = PhotoImage(file="Image/delete.png")
 Button(root, image = Delete_icon, fg = '#333333', bg = '#333333', activebackground = '#333333', bd = 0, command = lambda:[deleteTask(), completetasksfx()]).pack(side = BOTTOM, pady = 13)
-
-
 
 
 root.mainloop()
