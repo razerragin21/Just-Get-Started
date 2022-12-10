@@ -1,8 +1,8 @@
 import tkinter
 from tkinter import *
 from playsound import playsound
-from pystray import MenuItem as item
 import pystray
+from pystray import MenuItem as item
 from PIL import Image, ImageTk
 
 

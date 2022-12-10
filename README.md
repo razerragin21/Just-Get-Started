@@ -10,3 +10,5 @@ Images stored in Image folder
 Sounds stored in SFX folder
 
 Currently only supports Windows OS and is non-resizeable, plan is to make it run on other OS's and have customizable settings such as options for sound and program resolution.
+
+Add Resiable window functionality (must keep UI assets anchored with the UI strechning along with the window)
