@@ -167,38 +167,9 @@ scrollbar.config(command=listbox.yview)
 # Create a button
 button = tkinter.Button(root, text="Menu")
 
-# Create a drop-down menu
-menu = tkinter.Menu(root, tearoff=0)
-menu.add_command(label="Item 1")
-menu.add_command(label="Item 2")
-menu.add_command(label="Item 3")
-
-# Define a function that animates the drop-down menu
-def animate_menu(event):
-    if menu.winfo_ismapped():
-        menu.unpost()
-    else:
-        menu.post(event.x_root, event.y_root)
-
-# Bind the function to the button's click event
-button.bind("<Button-1>", animate_menu)
-
-# Place the button in the top left corner of the screen
-button.place(x=150, y=150)
-
-button.config(bg="grey", fg="#1E1E1E")
-
-
-
-# Create a button
-button = tkinter.Button(root, text="Menu")
-
 # Create a label to display the white box
 
 label = tkinter.Label(root, text = "drop down", bg="#23262E")
-
-
-
 
 
 # Define a function that animates the white box
@@ -215,7 +186,18 @@ button.bind("<Button-1>", animate_box)
 # Place the button in the top left corner of the screen
 button.place(x=0, y=0)
 
+# Create a delete button and set the sticky attribute to "ew"
+delete_button = tkinter.Button(label, text="Delete", width = 200, height = 1)
 
+# Define a function that deletes the label
+def delete_label(event):
+    label.place_forget()
+
+# Bind the delete function to the delete button's click event
+delete_button.bind("<Button-1>", delete_label)
+
+# Place the delete button on the label
+delete_button.place(x=0, y=0)
 
 
 
