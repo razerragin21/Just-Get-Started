@@ -4,7 +4,8 @@ from playsound import playsound
 import pystray
 from pystray import MenuItem as item
 from PIL import Image, ImageTk
-
+import tkinter.messagebox
+import customtkinter
 
 #window configuration
 root=Tk()
@@ -53,6 +54,10 @@ def show_icon():
 
 # runs the show icon function, when windows application is closed
 root.protocol('WM_DELETE_WINDOW', show_icon)
+
+
+
+
 
 
 
@@ -110,6 +115,13 @@ def openTaskFile():
 # -------------------------------------------------------------------------------------------------
 # UI
 
+
+
+
+
+
+
+
 # image for application
 
 Image_icon = PhotoImage(file="Image/task.png")
@@ -121,7 +133,7 @@ Label(root, image=TopImage, background = '#333333').pack()
 
 # image for dock
 dockImage=PhotoImage(file="Image/dock.png")
-Label(root, image=dockImage, bg="#32405b").place(x=30, y=25)
+
 
 # image for tasks
 noteImage = PhotoImage(file="image/task.png")
@@ -129,6 +141,12 @@ Label(root, image=noteImage, bg="#32405b").place(x=340, y=19)
 
 heading = Label(root, text="To Do", font="arial 20 bold", fg="white", bg="#32405b")
 heading.place(x=160, y=20)
+
+
+
+
+
+
 
 
 # main
@@ -150,6 +168,13 @@ root.bind_all("<Return>", lambda event: button.invoke())
 
 
 
+
+
+
+
+
+
+
 #list box
 frame1 = Frame(root, bd=3, width = 700, height = 280, bg = "#333333")
 frame1.pack(pady=(160, 0))
@@ -164,13 +189,19 @@ scrollbar.config(command=listbox.yview)
 
 
 
+
+
+
+
+
+
+
 # Create a button
-button = tkinter.Button(root, text="Menu")
+button = tkinter.Button(root, text="Menu", image = dockImage, highlightbackground="#32405B", background="#32405B", borderwidth=0)
 
 # Create a label to display the white box
 
-label = tkinter.Label(root, text = "drop down", bg="#23262E")
-
+label = tkinter.Label(root, text = "drop down", bg="#23262E", borderwidth=1)
 
 # Define a function that animates the white box
 def animate_box(event):
@@ -180,11 +211,12 @@ def animate_box(event):
         label.place(x=0, y=0, width=200, height=650)
         label.lift()
 
+
 # Bind the function to the button's click event
 button.bind("<Button-1>", animate_box)
 
 # Place the button in the top left corner of the screen
-button.place(x=0, y=0)
+button.place(x=30, y=25)
 
 # Create a delete button and set the sticky attribute to "ew"
 delete_button = tkinter.Button(label, text="Delete", width = 200, height = 1)
@@ -212,8 +244,6 @@ openTaskFile()
 
 Delete_icon = PhotoImage(file="Image/delete.png")
 Button(root, image = Delete_icon, fg = '#333333', bg = '#333333', activebackground = '#333333', bd = 0, command = lambda:[deleteTask(), completetasksfx()]).pack(side = BOTTOM, pady = 13)
-
-
 
 
 
