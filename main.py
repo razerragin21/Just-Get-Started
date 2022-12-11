@@ -4,7 +4,8 @@ from playsound import playsound
 from pystray import MenuItem as item
 import pystray
 from PIL import Image, ImageTk
-
+import tkinter.messagebox
+import customtkinter
 
 #window configuration
 root=Tk()
@@ -53,6 +54,10 @@ def show_icon():
 
 # runs the show icon function, when windows application is closed
 root.protocol('WM_DELETE_WINDOW', show_icon)
+
+
+
+
 
 
 
@@ -110,6 +115,13 @@ def openTaskFile():
 # -------------------------------------------------------------------------------------------------
 # UI
 
+
+
+
+
+
+
+
 # image for application
 
 Image_icon = PhotoImage(file="Image/task.png")
@@ -131,6 +143,12 @@ heading = Label(root, text="To Do", font="arial 20 bold", fg="white", bg="#32405
 heading.place(x=160, y=20)
 
 
+
+
+
+
+
+
 # main
 
 frame = Frame(root, width=400, height=50, bg="#252526")
@@ -150,6 +168,13 @@ root.bind_all("<Return>", lambda event: button.invoke())
 
 
 
+
+
+
+
+
+
+
 #list box
 frame1 = Frame(root, bd=3, width = 700, height = 280, bg = "#333333")
 frame1.pack(pady=(160, 0))
@@ -161,6 +186,12 @@ scrollbar.pack(side = RIGHT, fill = BOTH)
 
 listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=listbox.yview)
+
+
+
+
+
+
 
 
 
@@ -213,8 +244,6 @@ openTaskFile()
 
 Delete_icon = PhotoImage(file="Image/delete.png")
 Button(root, image = Delete_icon, fg = '#333333', bg = '#333333', activebackground = '#333333', bd = 0, command = lambda:[deleteTask(), completetasksfx()]).pack(side = BOTTOM, pady = 13)
-
-
 
 
 
