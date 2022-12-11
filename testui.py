@@ -76,7 +76,7 @@ class App(customtkinter.CTk):
         self.radio_button_2 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=1, text="Medium priority", text_color="#FFB620")
         self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
 
-        self.radio_button_3 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=2, text="High priority", text_color="#DC463F")
+        self.radio_button_3 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=2, border_color='white', text="High priority", text_color="#DC463F")
         self.radio_button_3.grid(row=3, column=2, pady=10, padx=20, sticky="n")
 
 
