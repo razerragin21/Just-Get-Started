@@ -4,6 +4,7 @@ import tkinter.messagebox
 import customtkinter
 from PIL import Image
 
+# window configuration
 class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
@@ -82,6 +83,7 @@ class App(customtkinter.CTk):
 
         self.textbox.insert("0.0", "Your Tasks:\n\n" + "Must do XYZ\n\n" * 20)
 
+    # create event functions
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
         print("CTkInputDialog:", dialog.get_input())
@@ -98,7 +100,7 @@ class App(customtkinter.CTk):
         customtkinter.set_widget_scaling(new_scaling_float)
 
 
-
+# run app
 if __name__ == "__main__":
     app = App()
     app.mainloop()

@@ -1,15 +1,12 @@
 import speech_recognition
 import pyttsx3
-import os
-import openai
 
-
-
-
+# Initialize the recognizer and the engine for text to speech
 recognizer = speech_recognition.Recognizer()
+# open a file to write the voice transcript, append any new text to the end of the file
 f = open("voice_transcript.txt", "a")
 
-
+# Create a while loop to keep the program running 
 while True:
 
     try:
@@ -23,11 +20,12 @@ while True:
             print(f"I detected: {text}")
             f.write(text + "\n")
 
-    
+    # If the user says "stop" or no speech is detected, break the loop
     except speech_recognition.UnknownValueError():
 
         recognizer = speech_recognition.Recognizer()
         print("No speech detected - terminating")
+        # Close the file
         f.close()
         continue
         
