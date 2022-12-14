@@ -35,6 +35,7 @@ def show_window(icon, item):
    root.after(0,root.deiconify())
    root.lift()
    root.attributes('-topmost',True)
+   root.after_idle(root.attributes,'-topmost',False)
 
 # Hide the window and show on the system taskbar
 def hide_window():
