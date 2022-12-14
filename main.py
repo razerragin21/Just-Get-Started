@@ -175,7 +175,7 @@ root.bind_all("<Return>", lambda event: button.invoke())
 
 
 
-#list box
+#list box, scrollbar and frame
 frame1 = Frame(root, bd=3, width = 700, height = 280, bg = "#333333")
 frame1.pack(pady=(160, 0))
 
@@ -196,7 +196,7 @@ scrollbar.config(command=listbox.yview)
 
 
 
-# Create a button
+# Create a button, set the image, and set the background color to match the white box
 button = tkinter.Button(root, text="Menu", image = dockImage, highlightbackground="#32405B", background="#32405B", borderwidth=0)
 
 # Create a label to display the white box
@@ -212,7 +212,7 @@ def animate_box(event):
         label.lift()
 
 
-# Bind the function to the button's click event
+# Bind the function to the button's click event, and set the event to "<Button-1>"
 button.bind("<Button-1>", animate_box)
 
 # Place the button in the top left corner of the screen
@@ -240,7 +240,7 @@ delete_button.place(x=0, y=0)
 openTaskFile()
 
 
-# delete
+# delete, create as button
 
 Delete_icon = PhotoImage(file="Image/delete.png")
 Button(root, image = Delete_icon, fg = '#333333', bg = '#333333', activebackground = '#333333', bd = 0, command = lambda:[deleteTask(), completetasksfx()]).pack(side = BOTTOM, pady = 13)
