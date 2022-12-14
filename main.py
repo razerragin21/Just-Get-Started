@@ -34,13 +34,13 @@ def show_window(icon, item):
    icon.stop()
    root.after(0,root.deiconify())
    root.lift()
-   root.attributes('-topmost',True)
+   root.focus_force()
 
 # Hide the window and show on the system taskbar
 def hide_window():
    root.withdraw()
    image=Image.open("Image/task.png")
-   menu=(item('Quit', quit_window), item('Show', show_window))
+   menu=(item('Show', show_window), item('Quit', quit_window))
    icon=pystray.Icon("name", image, "My System Tray Icon", menu)
    icon.run()
 
@@ -48,7 +48,7 @@ def hide_window():
 def show_icon():
     root.withdraw()
     image=Image.open("Image/task.png")
-    menu=(item('Quit', quit_window), item('Show', show_window))
+    menu=(item('Show', show_window), item('Quit', quit_window))
     icon=pystray.Icon("name", image, "My System Tray Icon", menu)
     icon.run()
 
