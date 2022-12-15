@@ -13,7 +13,8 @@ class App(customtkinter.CTk):
         # configure window
         self.title("Escape The Matrix")
         self.geometry(f"{1100}x{580}")
-        self.resizable(False, False)
+        self.minsize(550, 380)
+        self.resizable(True, True)
 
         Image_icon = PhotoImage(file="Image/task.png")
         self.iconphoto(False, Image_icon)
@@ -41,14 +42,14 @@ class App(customtkinter.CTk):
         self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
-        self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark", "System"],
+        self.appearance_mode_optionmenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark", "System"],
                                                                        command=self.change_appearance_mode_event)
-        self.appearance_mode_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 10))
+        self.appearance_mode_optionmenu.grid(row=6, column=0, padx=20, pady=(10, 10))
         self.scaling_label = customtkinter.CTkLabel(self.sidebar_frame, text="UI Scaling:", anchor="w")
         self.scaling_label.grid(row=7, column=0, padx=20, pady=(10, 0))
-        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%"],
+        self.scaling_optionmenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%"],
                                                                command=self.change_scaling_event)
-        self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
+        self.scaling_optionmenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
 
 
@@ -71,10 +72,10 @@ class App(customtkinter.CTk):
         self.label_radio_group = customtkinter.CTkLabel(master=self.radiobutton_frame, text="Priority Group:", text_color="#1F6AB8", font=("default", 14, "bold"))
         self.label_radio_group.grid(row=0, column=2, columnspan=1, padx=10, pady=10, sticky="")
 
-        self.radio_button_1 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=0, text="Low priority", text_color="#6FCA3F")
+        self.radio_button_1 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=0, border_color='white', text="Low priority", text_color="#6FCA3F")
         self.radio_button_1.grid(row=1, column=2, pady=10, padx=20, sticky="n")
 
-        self.radio_button_2 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=1, text="Medium priority", text_color="#FFB620")
+        self.radio_button_2 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=1, border_color='white', text="Medium priority", text_color="#FFB620")
         self.radio_button_2.grid(row=2, column=2, pady=10, padx=20, sticky="n")
 
         self.radio_button_3 = customtkinter.CTkRadioButton(master=self.radiobutton_frame, variable=self.radio_var, value=2, border_color='white', text="High priority", text_color="#DC463F")
