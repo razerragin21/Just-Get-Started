@@ -83,6 +83,16 @@ class App(customtkinter.CTk):
 
         self.textbox.insert("0.0", "Your Tasks:\n\n" + "Must do XYZ\n\n" * 20)
 
+
+
+        # set default values on launch
+        self.sidebar_button_3.configure(state="disabled", text="Disabled CTkButton")
+        self.radio_button_3.configure(state="disabled")
+        self.appearance_mode_optionemenu.set("Dark")
+        self.scaling_optionemenu.set("100%")
+        self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
+
+
     # create event functions
     def open_input_dialog_event(self):
         dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
