@@ -13,7 +13,8 @@ class App(customtkinter.CTk):
         # configure window
         self.title("Escape The Matrix")
         self.geometry(f"{1100}x{580}")
-        self.resizable(False, False)
+        self.minsize(550, 380)
+        self.resizable(True, True)
 
         Image_icon = PhotoImage(file="Image/task.png")
         self.iconphoto(False, Image_icon)
@@ -41,14 +42,14 @@ class App(customtkinter.CTk):
         self.sidebar_button_3.grid(row=3, column=0, padx=20, pady=10)
         self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
         self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
-        self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark", "System"],
+        self.appearance_mode_optionmenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark", "System"],
                                                                        command=self.change_appearance_mode_event)
-        self.appearance_mode_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 10))
+        self.appearance_mode_optionmenu.grid(row=6, column=0, padx=20, pady=(10, 10))
         self.scaling_label = customtkinter.CTkLabel(self.sidebar_frame, text="UI Scaling:", anchor="w")
         self.scaling_label.grid(row=7, column=0, padx=20, pady=(10, 0))
-        self.scaling_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%"],
+        self.scaling_optionmenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["80%", "90%", "100%", "110%", "120%"],
                                                                command=self.change_scaling_event)
-        self.scaling_optionemenu.grid(row=8, column=0, padx=20, pady=(10, 20))
+        self.scaling_optionmenu.grid(row=8, column=0, padx=20, pady=(10, 20))
 
 
 
