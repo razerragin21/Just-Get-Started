@@ -164,7 +164,7 @@ task_entry.focus()
 button = Button(frame, text="ADD", font="Helvetica 20", width = 6, bg = "#1E1E1E", fg="#2F89FF", activebackground = '#2F89FF', activeforeground ='#FFFFFF', bd = 0, command= lambda:([addTask(), addtasksfx()]))
 button.place(x = 300, y = 0)
 # Enter button allows for same functionality as add button
-root.bind_all("<Return>", lambda event: button.invoke())
+root.bind("<Return>", lambda event: button.invoke([addTask(), addtasksfx()]))
 
 
 
