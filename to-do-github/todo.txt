@@ -1,3 +1,9 @@
 add calendar - google api?
 time tracking inputs - either in the form of an active timer or a record of tasks
 add a notes panel for reminders etc - alarms and calendar reminders
+
+
+feynman 
+1. pick a topic
+2. explain to 12 year old
+3. review, simplify, repeat
