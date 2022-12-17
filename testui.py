@@ -89,8 +89,8 @@ class App(customtkinter.CTk):
         # set default values on launch
         self.sidebar_button_3.configure(state="disabled", text="Disabled CTkButton")
         self.radio_button_3.configure(state="disabled")
-        self.appearance_mode_optionemenu.set("Dark")
-        self.scaling_optionemenu.set("100%")
+        self.appearance_mode_optionmenu.set("Dark")
+        self.scaling_optionmenu.set("100%")
         self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
 
 
