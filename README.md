@@ -5,6 +5,9 @@ I made this simple To Do application in python to help me get things done, at th
 Libraries used:
 - Tkinter
 - Playsound
+- Systray
+- CTkinter
+- Matpylib
 
 Images stored in Image folder
 Sounds stored in SFX folder
