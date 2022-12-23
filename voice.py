@@ -5,6 +5,10 @@ import pyttsx3
 recognizer = speech_recognition.Recognizer()
 # open a file to write the voice transcript, append any new text to the end of the file
 f = open("voice_transcript.txt", "a")
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+
 
 # Create a while loop to keep the program running 
 while True:
@@ -19,6 +23,8 @@ while True:
             text = recognizer.recognize_google(audio)
             print(f"I detected: {text}")
             f.write(text + "\n")
+            engine.say(text)
+            engine.runAndWait()
 
     # If the user says "stop" or no speech is detected, break the loop
     except speech_recognition.UnknownValueError():
@@ -28,4 +34,6 @@ while True:
         # Close the file
         f.close()
         continue
-        
+
+
+
