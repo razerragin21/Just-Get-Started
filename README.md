@@ -20,3 +20,4 @@ Future implementation of a skill tree
 - Represented by nodes linking to eachtoerh via skill history
 - Interactive contribution graph of your progress
 - Similar to github contribution graph
+- Track everything on a online database
