@@ -19,6 +19,12 @@ X_Y_Spline = make_interp_spline(x, y)
 X_ = np.linspace(x.min(), x.max(), 500)
 Y_ = X_Y_Spline(X_)
 
+# plot  the Graph
+plt.plot(X_, Y_, color = '#40CA58', linewidth = 2)
+plt.title("Your progress mapped")
+plt.xlabel("Days")
+plt.ylabel("Points")
+plt.show()
 
 #feynman 
 #1. pick a topic
