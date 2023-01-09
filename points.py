@@ -1,29 +1,23 @@
-def add_points():
-    points = 0
-    points += 1
-    
+import numpy as np
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import matplotlib.pyplot as plt
 
-add_points()
+# Dataset, assuming this is our daily points
 
-def insert(self, val):
-    if not self.val:
-        self.val = val
-        return
+# days passed
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
 
-    if self.val == val:
-        return
+# points per day
+y = np.array([20, 30, 5, 12, 39, 48, 50, 3])
 
-    if val < self.val:
-        if self.left:
-            self.left.insert(val)
-            return
-        self.left = BSTNode(val)
-        return
+# linear interpolation between x and y
+X_Y_Spline = make_interp_spline(x, y)
 
-    if self.right:
-        self.right.insert(val)
-        return
-    self.right = BSTNode(val)
+# Returns evenly spaced numbers
+# over a specified interval
+X_ = np.linspace(x.min(), x.max(), 500)
+Y_ = X_Y_Spline(X_)
 
 
 #feynman 
