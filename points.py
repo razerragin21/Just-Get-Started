@@ -24,5 +24,9 @@ plt.plot(X_, Y_, color = '#40CA58', linewidth = 2)
 plt.title("Your progress mapped")
 plt.xlabel("Days")
 plt.ylabel("Points")
-# Show the plot
 plt.show()
+
+#feynman 
+#1. pick a topic
+#2. explain to 12 year old
+#3. review, simplify, repeat
